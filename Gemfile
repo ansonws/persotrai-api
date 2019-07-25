@@ -22,6 +22,13 @@ gem 'puma', '~> 3.11'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'cancancan'
+gem 'cowsay'
+gem 'faker'
+gem "selectize-rails"
+gem 'active_model_serializers'
+gem 'aasm'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
