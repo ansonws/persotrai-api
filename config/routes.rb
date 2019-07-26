@@ -27,6 +27,7 @@ Rails.application.routes.draw do
           put :finish
           put :done
         end
+      end
     end
   end
 end
