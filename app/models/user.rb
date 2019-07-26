@@ -1,6 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
 
+    has_one :trainer, dependent: :destroy
+
+
     has_many :favourites, dependent: :destroy
     has_many :favourited_trainer, through: :favourites, source: :trainer
     
@@ -10,7 +13,7 @@ class User < ApplicationRecord
     has_many :reviews, dependent: :nullify
 
     
-    has_many :sessions, dependent: :destroy
+    has_many :lessons, dependent: :destroy
    
     validates(:email, presence: true, uniqueness: true, format: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i)
 
