@@ -70,8 +70,6 @@ class Api::V1::TrainersController < ApplicationController
         end
 
       
-    end
-  
     def edit
       # if !can?(:edit, @question)
       #   redirect_to root_path, alert: 'Not authorized'
