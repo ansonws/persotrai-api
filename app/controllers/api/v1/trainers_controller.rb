@@ -1,5 +1,5 @@
-class Api::V1::TrainersController < Api::ApplicationController
-    before_action :authenticate_user!, only: [ :create, :destroy, :update ]
+class Api::V1::TrainersController < API::ApplicationController
+    # before_action :authenticate_user!, only: [:create, :destroy, :update ]
     before_action :find_teacher, only: [ :destroy, :show, :update ]
   
     def index
@@ -8,7 +8,8 @@ class Api::V1::TrainersController < Api::ApplicationController
       render(
         json: trainers,
 
-        each_serializer: TrainerCollectionSerializer
+        # each_serializer: TrainerCollectionSerializer
+        each_serializer: TrainerSerializer
       )
     end
   
@@ -23,7 +24,7 @@ class Api::V1::TrainersController < Api::ApplicationController
     end
   
     def create
-      trainer = trainer.new trainer_params
+      trainer = Trainer.new trainer_params
       trainer.user = current_user
   
       trainer.save!
@@ -41,6 +42,12 @@ class Api::V1::TrainersController < Api::ApplicationController
     end
   
     private
+
+    # def current_user
+    #   @user = User.find(current_user.id)
+    #   @current_user ||= User.find(session[user_id])
+    # end
+
     def find_trainer
       @trainer ||= Trainer.find params[:id]
     end
