@@ -6,7 +6,7 @@ class Api::V1::TrainersController < API::ApplicationController
       trainers = Trainer.order(created_at: :desc)
   
       render(
-        json: seasons,
+        json: trainers,
         each_serializer: TrainerCollectionSerializer
       )
     end
@@ -53,5 +53,5 @@ class Api::V1::TrainersController < API::ApplicationController
     def trainer_params
       params.require(:trainer).permit(:price, :description, :area)
     end
-  end
+  
 end
