@@ -1,4 +1,4 @@
-class Api::V1::FavouritesController < Api::ApplicationController
+class Api::V1::FavouritesController < API::ApplicationController
     def create
         trainer = Trainer.find params[:trainer_id]
         favourite = Favourite.new user: current_user, trainer: trainer
