@@ -15,7 +15,7 @@ class Api::V1::TrainersController < API::ApplicationController
       render(
         json: @trainer,
 
-        include: [ {reviews: [ :student ]}, {favourites: [ :student ]} ]
+        include: [ {reviews: [ :user ]}, {favourites: [ :user ]} ]
         # include: [ :teacher, {favourites: [ :student ]} ], {availabilities: [ :student ]} 
         # include: [ :teacher, {availabilities: [ :student ]} ]
       )
