@@ -3,12 +3,12 @@ class Api::V1::ReviewsController < Api::ApplicationController
     before_action :find_review, only: [:destroy]
 
     def create
-        @product = Product.find(params[:product_id])
+        @trainer = Trainer.find(params[:trainer_id])
         @review = Review.new review_params
-        @review.product = @product
+        @review.trainer = @trainer
         @review.user = current_user
         @review.save!
-        render json: { status:201, id: review.id }
+        render json: { status:201, id: @review.id }
     end
 
     def destroy

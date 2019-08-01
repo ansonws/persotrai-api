@@ -1,6 +1,6 @@
 class Api::V1::TrainersController < API::ApplicationController
     # before_action :authenticate_user!, only: [:create, :destroy, :update ]
-    before_action :find_teacher, only: [ :destroy, :show, :update ]
+    before_action :find_trainer, only: [ :destroy, :show, :update ]
   
     def index
       trainers = Trainer.order(created_at: :desc)
@@ -15,7 +15,7 @@ class Api::V1::TrainersController < API::ApplicationController
       render(
         json: @trainer,
 
-        include: [ {reviews: [ :student ]}, {favourites: [ :student ]} ]
+        include: [ {reviews: [ :user ]}, {favourites: [ :user ]} ]
         # include: [ :teacher, {favourites: [ :student ]} ], {availabilities: [ :student ]} 
         # include: [ :teacher, {availabilities: [ :student ]} ]
       )
