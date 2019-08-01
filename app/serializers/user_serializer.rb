@@ -11,6 +11,7 @@ class UserSerializer < ActiveModel::Serializer
     :avatar
   ) 
 
+  ############ still need to change when front end implemented #######
   # def avatar
   #   object.avatars_attachments.includes(:blob).map do |attachment|
   #     {
