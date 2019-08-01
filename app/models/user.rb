@@ -1,8 +1,8 @@
 class User < ApplicationRecord
+    has_one_attached :avatar
     has_secure_password
 
     has_one :trainer, dependent: :destroy
-
 
     has_many :favourites, dependent: :destroy
     has_many :favourited_trainer, through: :favourites, source: :trainer
