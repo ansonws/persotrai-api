@@ -1,4 +1,4 @@
-class Api::V1::ReviewsController < Api::ApplicationController
+class Api::V1::ReviewsController < ApplicationController
     before_action :authenticate_user!
     before_action :find_review, only: [:destroy]
 

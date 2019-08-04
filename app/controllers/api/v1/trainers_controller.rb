@@ -1,4 +1,4 @@
-class Api::V1::TrainersController < API::ApplicationController
+class Api::V1::TrainersController < ApplicationController
     # before_action :authenticate_user!, only: [:create, :destroy, :update ]
     before_action :find_trainer, only: [ :destroy, :show, :update ]
   

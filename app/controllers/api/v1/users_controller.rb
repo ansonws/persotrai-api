@@ -1,4 +1,4 @@
-class Api::V1::UsersController < Api::ApplicationController
+class Api::V1::UsersController < ApplicationController
 
     before_action :find_user, only: [:update,:update_password]
 
