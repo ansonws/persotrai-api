@@ -23,9 +23,12 @@ class Api::V1::UsersController < ApplicationController
     def update
       if @user.update user_params
         flash[:success] = "Your profile was updated successfully!"
-        redirect_to root_path
+        render json: { id: @user.id }
       else
-        render :edit
+        render(
+          json: { errors: user.errors.messages },
+          status: 422 # Unprocessable Entity
+        )
       end
     end
 
@@ -51,7 +54,7 @@ class Api::V1::UsersController < ApplicationController
     private
   
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :avatar)
     end
 
     def find_user
