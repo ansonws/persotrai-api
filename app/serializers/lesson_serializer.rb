@@ -1,5 +1,5 @@
 class LessonSerializer < ActiveModel::Serializer
-  attributes (
+  attributes(
     :id,
     :comment,
     :created_at, 
