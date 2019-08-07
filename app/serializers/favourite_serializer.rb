@@ -1,5 +1,5 @@
 class FavouriteSerializer < ActiveModel::Serializer
-  attributes (
+  attributes(
     :id,
     :created_at, 
     :updated_at
